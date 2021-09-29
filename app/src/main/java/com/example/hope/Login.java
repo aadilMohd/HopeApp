@@ -20,7 +20,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
-        email = findViewById(R.id.emaile);
+        email = findViewById(R.id.emialinp);
         pass = findViewById(R.id.passin);
         singupl=findViewById(R.id.signinlink);
         signinb=findViewById(R.id.signinbut);
@@ -29,11 +29,19 @@ public class Login extends AppCompatActivity {
         signinb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                emails=email.getText().toString();
+                emails=email.getText().toString();
+                passs=pass.getText().toString();
 
-                System.out.println(email);
+                String n = null;
 
-                startActivity(new Intent(Login.this,MainActivity.class));
+
+                System.out.println(passs);
+
+                Intent i = new Intent(Login.this,MainActivity.class);
+
+                i.putExtra("email",emails);
+
+                startActivity(i);
 
 
             }
