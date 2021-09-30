@@ -6,8 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity {
     private TextView t;
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,15 +19,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         t=findViewById(R.id.maint);
+        t.setText(user.getUid());
 
-        Intent iin= getIntent();
-        Bundle b = iin.getExtras();
 
-        if(b!=null)
-        {
-            String j =(String) b.get("email");
-            t.setText(j);
-        }
 
 
     }
