@@ -1,14 +1,14 @@
 package com.example.hope;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -52,9 +52,9 @@ public class Login extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Toast.makeText(Login.this, "Signed ", Toast.LENGTH_SHORT).show();
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent i = new Intent(Login.this,MainActivity.class);
+                            Intent i = new Intent(Login.this,MapsActivity.class);
 
-                            i.putExtra("email",emails);
+//                            i.putExtra("email",emails);
 
                             startActivity(i);
 
