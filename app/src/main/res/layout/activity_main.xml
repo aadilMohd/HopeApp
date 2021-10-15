@@ -7,40 +7,25 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
-
-    <TextView
-        android:id="@+id/welcometext"
-        android:layout_width="391dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="168dp"
-        android:layout_marginBottom="370dp"
-        android:text=""
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        app:layout_constraintBottom_toTopOf="@+id/logoutbutton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <include layout="@layout/activity_maps"
-
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-
-        tools:context=".MapsActivity"
-
-        />
-    <Button
-        android:id="@+id/logoutbutton"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="276dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="78dp"
-        android:text="Logout"
+        android:layout_marginBottom="340dp"
+        android:hint="Password"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcometext" />
+        app:passwordToggleEnabled="true">>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

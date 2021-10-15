@@ -29,12 +29,12 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
-        email = findViewById(R.id.emialinp);
+        email = findViewById(R.id.emailin);
         pass = findViewById(R.id.passin);
         singupl=findViewById(R.id.signinlink);
         signinb=findViewById(R.id.signinbut);
         mAuth = FirebaseAuth.getInstance();
-        
+
 
 
         signinb.setOnClickListener(new View.OnClickListener() {
