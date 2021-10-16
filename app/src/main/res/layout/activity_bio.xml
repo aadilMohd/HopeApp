@@ -10,11 +10,10 @@
     <View
         android:id="@+id/rectangle_1"
         android:layout_width="413dp"
-        android:layout_height="0dp"
+        android:layout_height="567dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="-105dp"
-        android:layout_marginBottom="107dp"
         android:background="@drawable/rectangle_1"
 
         app:layout_constraintStart_toStartOf="parent"
@@ -22,8 +21,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="310dp"
-        android:layout_height="597dp"
+        android:layout_width="357dp"
+        android:layout_height="654dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/rectangle_2"
         android:outlineAmbientShadowColor="@color/black"
         android:outlineSpotShadowColor="@color/black"
@@ -53,16 +53,15 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/dob"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="266dp"
-            android:layout_height="51dp"
+            android:layout_width="287dp"
+            android:layout_height="69dp"
 
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="80dp"
             android:hint="Date of Birth"
             android:textColorHint="@color/black"
             app:boxStrokeColor="@color/black"
             app:hintTextColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -79,17 +78,16 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/allergyandreaction"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="266dp"
+            android:layout_width="288dp"
 
-            android:layout_height="51dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="4dp"
             android:hint="Allergies and Reaction"
             android:textColorHint="@color/black"
             app:boxStrokeColor="@color/black"
 
             app:hintTextColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dob">
 
@@ -105,8 +103,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/bloodg"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="139dp"
-            android:layout_height="52dp"
+            android:layout_width="149dp"
+            android:layout_height="58dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:hint="Blood Group"
@@ -131,8 +129,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/gender"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="103dp"
-            android:layout_height="51dp"
+            android:layout_width="120dp"
+            android:layout_height="58dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="10dp"
             android:hint="Gender"
@@ -148,6 +146,7 @@
                 android:id="@+id/genderin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 app:hintTextColor="@color/black" />
 
@@ -157,8 +156,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/height"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="102dp"
-            android:layout_height="43dp"
+            android:layout_width="128dp"
+            android:layout_height="58dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="10dp"
             android:hint="Height"
@@ -166,7 +165,6 @@
             app:boxStrokeColor="@color/black"
             app:hintTextColor="@color/black"
 
-            app:layout_constraintHorizontal_bias="0.376"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gender">
 
@@ -184,8 +182,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/weight"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="132dp"
-            android:layout_height="42dp"
+            android:layout_width="155dp"
+            android:layout_height="61dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:hint="Weight"
@@ -208,12 +206,11 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/medication"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="266dp"
-            android:layout_height="51dp"
+            android:layout_width="274dp"
+            android:layout_height="67dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="40dp"
             android:hint="Medications"
             android:textColorHint="@color/black"
             app:boxStrokeColor="@color/black"
@@ -237,8 +234,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/medicalc"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="266dp"
-            android:layout_height="51dp"
+            android:layout_width="268dp"
+            android:layout_height="65dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
@@ -266,8 +263,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emergencycname"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="266dp"
-            android:layout_height="51dp"
+            android:layout_width="272dp"
+            android:layout_height="64dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
@@ -292,8 +289,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emergencycnumber"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="266dp"
-            android:layout_height="51dp"
+            android:layout_width="276dp"
+            android:layout_height="65dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
@@ -303,10 +300,9 @@
             app:hintTextColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/emergencycname"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintVertical_bias="0.017">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emergencycnumberin"
@@ -331,8 +327,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rectangle_1"
-        app:layout_constraintVertical_bias="0.392" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
