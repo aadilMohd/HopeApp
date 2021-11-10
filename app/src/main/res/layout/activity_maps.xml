@@ -94,13 +94,12 @@
         android:layout_width="369dp"
         android:layout_height="462dp"
         android:layout_marginTop="32dp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context=".MapsActivity"
-        android:visibility="visible"
-        />
+        tools:context=".MapsActivity" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/medicalbuton"
@@ -153,6 +152,31 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/refreshlocation"
+        android:layout_width="53dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/ellipse_1"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/map"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.905"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="54dp"
+            android:layout_height="46dp"
+            android:src="@drawable/refresh_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

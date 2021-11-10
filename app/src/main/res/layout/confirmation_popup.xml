@@ -8,7 +8,7 @@
     tools:context=".MapsActivity">
 
     <TextView
-        android:id="@+id/canceltext"
+        android:id="@+id/confirmtext"
         android:layout_width="298dp"
         android:layout_height="104dp"
         android:layout_marginBottom="52dp"
