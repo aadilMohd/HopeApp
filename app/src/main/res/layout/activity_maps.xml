@@ -9,39 +9,12 @@
     tools:context=".MapsActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/torchbutton"
-        android:layout_width="71dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="216dp"
-
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/ellipse_1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.157"
-        app:layout_constraintStart_toEndOf="@+id/emercontactbutton"
-        app:layout_constraintTop_toBottomOf="@+id/policebutton"
-        app:layout_constraintVertical_bias="0.933">
-
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_launcher_foreground"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/policebutton"
         android:layout_width="245dp"
         android:layout_height="81dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/rectangle_7"
+        app:circularflow_angles="25"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/medicalbuton">
@@ -108,10 +81,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/rectangle_7"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/map"
         android:visibility="visible"
-        >
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/map">
 
         <TextView
             android:id="@+id/medtext"
@@ -138,11 +110,10 @@
         android:layout_marginTop="28dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/ellipse_1"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/policebutton"
-        android:visibility="visible"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/policebutton">
 
         <ImageView
             android:id="@+id/imageView3"
@@ -160,10 +131,10 @@
         android:id="@+id/refreshlocation"
         android:layout_width="53dp"
         android:layout_height="51dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="263dp"
         android:background="@drawable/ellipse_1"
         android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="@+id/map"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.905"
         app:layout_constraintStart_toStartOf="parent"
@@ -179,7 +150,24 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/SOSbut"
+        android:layout_width="71dp"
+        android:layout_height="115dp"
+        android:clickable="true"
+        android:src="@drawable/flashbon_foreground"
+        app:backgroundTint="@color/main"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/refreshlocation"
+        app:layout_constraintVertical_bias="1.0"
+        app:maxImageSize="100dp"
+        app:rippleColor="#FFFFFF" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

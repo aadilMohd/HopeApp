@@ -1,21 +1,29 @@
 package com.example.hope;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.hardware.Camera;
+import android.hardware.camera2.CameraAccessException;
+import android.hardware.camera2.CameraManager;
 import android.location.Location;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
@@ -47,6 +55,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private ConstraintLayout medicalbutton;
     boolean t = false;
     private Button dismiss;
+    private ImageButton sos;
+    boolean hasCameraFlash = false;
+    boolean flashOn = false;
+
+
+
 
     private ConstraintLayout fireb;
     private ConstraintLayout policeb;
@@ -56,11 +70,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
+        hasCameraFlash = getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
+
+
         dismiss = findViewById(R.id.buttoncancel);
         fireb = findViewById(R.id.firebutton);
         policeb = findViewById(R.id.policebutton);
 
 //        logout=findViewById(R.id.logout);
+
+        sos = findViewById(R.id.SOSbut);
+
 
 
         medicalbutton = findViewById(R.id.medicalbuton);
@@ -155,6 +175,43 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 //
 //
+
+        sos.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public void onClick(View v) {
+
+                if(hasCameraFlash){
+                    if(flashOn){
+                        flashOn = false;
+                        //sos.setImageResource(R.drawable.refresh_icon);
+
+                        try {
+                            flashLightOff();
+                        } catch (CameraAccessException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    else{
+                        flashOn = true;
+                        //sos.setImageResource(R.drawable.call_icon);
+                        try {
+                            flashLightOn();
+                        } catch (CameraAccessException | InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }
+
+                else{
+                    Toast.makeText(MapsActivity.this, "no Flash!", Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
+        });
 
         policeb.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -428,7 +485,39 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void flashLightOn() throws CameraAccessException, InterruptedException {
+        CameraManager cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+        String cameraID = cameraManager.getCameraIdList()[0];
 
+        int fltime = 1000;
+
+        for(int i = 0; i<3; i++)
+        {
+            for(int j = 0; i<9; i++)
+            {
+                if(j>2 && j<6)
+                    fltime = 3000;
+
+                cameraManager.setTorchMode(cameraID, true);
+                Thread.sleep(fltime);
+                cameraManager.setTorchMode(cameraID, false);
+                Thread.sleep(fltime);
+            }
+
+
+        }
+
+
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void flashLightOff() throws CameraAccessException {
+        CameraManager cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+        String cameraID = cameraManager.getCameraIdList()[0];
+        cameraManager.setTorchMode(cameraID, false);
+    }
 
 
 
