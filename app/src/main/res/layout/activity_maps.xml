@@ -8,6 +8,29 @@
     android:background="@color/white"
     tools:context=".MapsActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/ActionBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/ActionBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            style="@style/ActionBarStyle"
+            app:title="@string/app_name"
+            app:navigationIcon="@drawable/menu">
+
+            <ImageView
+                android:id="@+id/nav_AppIcon"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/hopo_logo"
+                android:layout_gravity="end"/>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/policebutton"
         android:layout_width="245dp"
@@ -64,12 +87,12 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="369dp"
-        android:layout_height="462dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="454dp"
+        android:layout_marginTop="55dp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:context=".MapsActivity" />
@@ -131,15 +154,20 @@
         android:id="@+id/refreshlocation"
         android:layout_width="53dp"
         android:layout_height="51dp"
-        android:layout_marginBottom="263dp"
+        android:layout_marginTop="385dp"
         android:background="@drawable/ellipse_1"
         android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/map"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.905"
+        app:layout_constraintHorizontal_bias="0.962"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976">
+        app:layout_constraintTop_toTopOf="@+id/map"
+        app:layout_constraintVertical_bias="0.0">
+
+
+
+
+
 
         <ImageView
             android:id="@+id/imageView4"
@@ -157,13 +185,14 @@
         android:id="@+id/SOSbut"
         android:layout_width="71dp"
         android:layout_height="115dp"
+        android:layout_marginBottom="30dp"
         android:clickable="true"
         android:src="@drawable/flashbon_foreground"
         app:backgroundTint="@color/main"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toEndOf="@+id/emercontactbutton"
         app:layout_constraintTop_toBottomOf="@+id/refreshlocation"
         app:layout_constraintVertical_bias="1.0"
         app:maxImageSize="100dp"
