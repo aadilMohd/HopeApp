@@ -24,8 +24,12 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -39,13 +43,14 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Objects;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
     Location currentLocation;
     FusedLocationProviderClient fusedLocationProviderClient;
     private static final int REQUEST_CODE = 101;
@@ -58,6 +63,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private ImageButton sos;
     boolean hasCameraFlash = false;
     boolean flashOn = false;
+    private Toolbar toolbar;
+    private DrawerLayout drawerLayout;
+
+    NavigationView navigationView;
 
 
 
@@ -72,10 +81,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         hasCameraFlash = getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
 
-
+        drawerLayout=findViewById(R.id.drawerLayout);
         dismiss = findViewById(R.id.buttoncancel);
         fireb = findViewById(R.id.firebutton);
         policeb = findViewById(R.id.policebutton);
+        toolbar= findViewById(R.id.ActionBar);
+
+        navigationView=findViewById(R.id.Main_NavView);
+        setSupportActionBar(toolbar);
+
+        navigationView.bringToFront();
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this,drawerLayout,toolbar,R.string.nav_drawer_open,R.string.nav_drawer_close);
+
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+
+
+
+
 
 //        logout=findViewById(R.id.logout);
 
