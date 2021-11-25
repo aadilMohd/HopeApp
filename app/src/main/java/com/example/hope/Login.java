@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class Login extends AppCompatActivity {
     private EditText email;
     private EditText pass;
-    private TextView singupl;
+    private TextView singupl,resetl;
     private View signinb;
     private String emails;
     private String passs;
@@ -34,6 +34,7 @@ public class Login extends AppCompatActivity {
         singupl=findViewById(R.id.signinlink);
         signinb=findViewById(R.id.signinbut);
         mAuth = FirebaseAuth.getInstance();
+        resetl= findViewById(R.id.resetlink);
 
 
 
@@ -68,12 +69,16 @@ public class Login extends AppCompatActivity {
                     }
                 });
 
-
-
-
             }
 
 
+        });
+
+        resetl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Login.this,resetpassword.class));
+            }
         });
 
         singupl.setOnClickListener(new View.OnClickListener() {

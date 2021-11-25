@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -44,14 +45,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Objects;
 
-public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
-    Location currentLocation;
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, NavigationView.OnNavigationItemSelectedListener {
+   Location currentLocation;
     FusedLocationProviderClient fusedLocationProviderClient;
     private static final int REQUEST_CODE = 101;
     private double latitude;
@@ -96,6 +99,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(this);
 
 
 
@@ -545,5 +550,25 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+                case R.id.nav_btnHome:
+//                    Toast.makeText(MapsActivity.this, "home button", Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.nav_btnAbout:
+                    startActivity(new Intent(MapsActivity.this,About.class));
+                    break;
+            case R.id.nav_btnLogout:
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(MapsActivity.this,Login.class));
+                finish();
+                break;
+            case R.id.nav_btnForgotpass:
+                startActivity(new Intent(MapsActivity.this,resetpassword.class));
+                finish();
 
+        }
+        return true;
+    }
 }
