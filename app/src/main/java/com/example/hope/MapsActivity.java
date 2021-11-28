@@ -144,7 +144,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 // create the popup window
                 int width = ConstraintLayout.LayoutParams.WRAP_CONTENT;
                 int height = ConstraintLayout.LayoutParams.WRAP_CONTENT;
-                boolean focusable = true; // lets taps outside the popup also dismiss it
+                boolean focusable = false; // lets taps outside the popup also dismiss it
                 final PopupWindow popupWindow = new PopupWindow(popupView, 900, 1000, focusable);
 
                 // show the popup window
@@ -157,7 +157,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 LayoutInflater inflater1 = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
                 View popupView1 = inflater1.inflate(R.layout.confirmation_popup, null);
-                final PopupWindow popupWindow1 = new PopupWindow(popupView1, 900, 1000, true);
+                final PopupWindow popupWindow1 = new PopupWindow(popupView1, 900, 1000, false);
 
 //
 
@@ -183,6 +183,42 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         popupWindow.dismiss();
 
                         popupWindow1.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+
+                        TextView t = popupWindow1.getContentView().findViewById(R.id.namea);
+                        TextView t2 = popupWindow1.getContentView().findViewById(R.id.phonea);
+                        t.setTextSize(18);
+                        String id = "1";
+                        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+                        DocumentReference result = db.collection("fire_stations").document(id);
+                        result.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                String firename, fire_no;
+                                DocumentSnapshot reference;
+                                Log.d("tagisthis", "message");
+                                if (task.isSuccessful()) {
+                                    DocumentSnapshot document = task.getResult();
+                                    reference = task.getResult();
+                                    if (document.exists()) {
+
+                                        firename = Objects.requireNonNull(document.get("name")).toString();
+                                        fire_no = (String) document.get("number");
+
+
+                                        t.setText(firename);
+                                        t2.setText(fire_no);
+
+
+                                    } else {
+                                        Log.d("TAG", "No such document");
+                                    }
+                                } else {
+                                    Log.d("TAG", "get failed with ", task.getException());
+                                }
+                            }
+                        });
 
                         popupWindow1.getContentView().findViewById(R.id.buttondismiss).setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -260,7 +296,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 // create the popup window
                 int width = ConstraintLayout.LayoutParams.WRAP_CONTENT;
                 int height = ConstraintLayout.LayoutParams.WRAP_CONTENT;
-                boolean focusable = true; // lets taps outside the popup also dismiss it
+                boolean focusable = false; // lets taps outside the popup also dismiss it
                 final PopupWindow popupWindow = new PopupWindow(popupView, 900, 1000, focusable);
 
                 // show the popup window
@@ -273,7 +309,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 LayoutInflater inflater1 = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
                 View popupView1 = inflater1.inflate(R.layout.confirmation_popup, null);
-                final PopupWindow popupWindow1 = new PopupWindow(popupView1, 900, 1000, true);
+                final PopupWindow popupWindow1 = new PopupWindow(popupView1, 900, 1000, false);
 
 //
 
@@ -299,6 +335,44 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         popupWindow.dismiss();
 
                         popupWindow1.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+
+                        TextView t = popupWindow1.getContentView().findViewById(R.id.namea);
+                        TextView t2 = popupWindow1.getContentView().findViewById(R.id.phonea);
+                        t.setTextSize(18);
+                        String id = "1";
+                        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+                        DocumentReference result = db.collection("police_stations").document(id);
+                        result.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                String policename, police_no;
+                                DocumentSnapshot reference;
+                                Log.d("tagisthis", "message");
+                                if (task.isSuccessful()) {
+                                    DocumentSnapshot document = task.getResult();
+                                    reference = task.getResult();
+                                    if (document.exists()) {
+
+                                        policename = Objects.requireNonNull(document.get("name")).toString();
+                                        police_no = (String) document.get("number");
+
+
+                                        t.setText(policename);
+                                        t2.setText(police_no);
+
+
+                                    } else {
+                                        Log.d("TAG", "No such document");
+                                    }
+                                } else {
+                                    Log.d("TAG", "get failed with ", task.getException());
+                                }
+                            }
+                        });
+
+
 
                         popupWindow1.getContentView().findViewById(R.id.buttondismiss).setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -336,7 +410,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 // create the popup window
                 int width = ConstraintLayout.LayoutParams.WRAP_CONTENT;
                 int height = ConstraintLayout.LayoutParams.WRAP_CONTENT;
-                boolean focusable = true; // lets taps outside the popup also dismiss it
+                boolean focusable = false; // lets taps outside the popup also dismiss it
                 final PopupWindow popupWindow = new PopupWindow(popupView, 900, 1000, focusable);
 
                 // show the popup window
@@ -349,7 +423,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 LayoutInflater inflater1 = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
                 View popupView1 = inflater1.inflate(R.layout.confirmation_popup, null);
-                final PopupWindow popupWindow1 = new PopupWindow(popupView1, 900, 1000, true);
+                final PopupWindow popupWindow1 = new PopupWindow(popupView1, 900, 1000, false);
 
 //
 
@@ -371,7 +445,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     @Override
                     public void onClick(View view) {
 
-                        String m = "jiji";
+
 
 
                         popupWindow.dismiss();
@@ -382,7 +456,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 //                        }
 
 
-                        TextView t = popupWindow1.getContentView().findViewById(R.id.confirmtext);
+                        TextView t = popupWindow1.getContentView().findViewById(R.id.namea);
+                        t.setTextSize(18);
+                        TextView t2 = popupWindow1.getContentView().findViewById(R.id.phonea);
                         String id = "1";
                         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -403,6 +479,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
                                         t.setText(driver);
+                                        t2.setText(driver_no);
 
 
                                     } else {
