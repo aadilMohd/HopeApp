@@ -27,195 +27,195 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/ActionBarLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/ActionBar"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/ActionBarLayout"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            style="@style/ActionBarStyle"
-            app:title="@string/app_name"
-            app:navigationIcon="@drawable/menu">
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/ActionBar"
+                style="@style/ActionBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:navigationIcon="@drawable/menu"
+                app:title="@string/app_name">
+
+                <ImageView
+                    android:id="@+id/nav_AppIcon"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="end"
+                    android:src="@drawable/hopo_logo" />
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/policebutton"
+            android:layout_width="178dp"
+            android:layout_height="73dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/rectangle_7"
+            app:circularflow_angles="25"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.452"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/medicalbuton">
+
+            <TextView
+                android:id="@+id/policetext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Police"
+                android:textColor="@color/white"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/firebutton"
+            android:layout_width="140dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rectangle_7"
+            app:circularflow_angles="45,90,135,180,225"
+            app:circularflow_radiusInDP="90,100,110,120,130"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.686"
+            app:layout_constraintStart_toEndOf="@+id/medicalbuton"
+            app:layout_constraintTop_toBottomOf="@+id/map">
+
+            <TextView
+                android:id="@+id/firetext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fire"
+                android:textColor="@color/white"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="457dp"
+            android:layout_height="509dp"
+            android:layout_marginTop="55dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:context=".MapsActivity" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/medicalbuton"
+            android:layout_width="153dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rectangle_7"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/map">
+
+            <TextView
+                android:id="@+id/medtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Medical"
+                android:textColor="@color/white"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/emercontactbutton"
+            android:layout_width="67dp"
+            android:layout_height="71dp"
+
+            android:layout_marginTop="24dp"
+            android:background="@drawable/ellipse_1"
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@+id/policebutton"
+            app:layout_constraintHorizontal_bias="0.441"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/medicalbuton">
 
             <ImageView
-                android:id="@+id/nav_AppIcon"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:src="@drawable/hopo_logo"
-                android:layout_gravity="end"/>
-        </androidx.appcompat.widget.Toolbar>
-    </com.google.android.material.appbar.AppBarLayout>
+                android:id="@+id/imageView3"
+                android:layout_width="79dp"
+                android:layout_height="89dp"
+                android:scrollbarThumbHorizontal="@drawable/caller_foreground"
+                android:src="@drawable/call_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/policebutton"
-        android:layout_width="245dp"
-        android:layout_height="81dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/rectangle_7"
-        app:circularflow_angles="25"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/medicalbuton">
-
-        <TextView
-            android:id="@+id/policetext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Police"
-            android:textColor="@color/black"
-            android:textSize="34sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/refreshlocation"
+            android:layout_width="59dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="385dp"
+            android:background="@drawable/ellipse_1"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="@+id/map"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.962"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toTopOf="@+id/map"
+            app:layout_constraintVertical_bias="0.0">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/firebutton"
-        android:layout_width="157dp"
-        android:layout_height="79dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/rectangle_7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.686"
-        app:layout_constraintStart_toEndOf="@+id/medicalbuton"
-        app:layout_constraintTop_toBottomOf="@+id/map">
 
-        <TextView
-            android:id="@+id/firetext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fire"
-            android:textColor="@color/black"
-            android:textSize="34sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="54dp"
+                android:layout_height="46dp"
+                android:src="@drawable/refresh_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.444" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/SOSbut"
+            android:layout_width="71dp"
+            android:layout_height="115dp"
+            android:layout_marginTop="24dp"
+            android:clickable="true"
+            android:scrollbarThumbHorizontal="@drawable/flasher_foreground"
+            android:scrollbarThumbVertical="@drawable/ellipse_1"
+            android:src="@drawable/flasher_foreground"
+            app:backgroundTint="@color/main"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="454dp"
-        android:layout_marginTop="55dp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:context=".MapsActivity" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/medicalbuton"
-        android:layout_width="157dp"
-        android:layout_height="79dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/rectangle_7"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/map">
-
-        <TextView
-            android:id="@+id/medtext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Medical"
-            android:textColor="@color/black"
-            android:textSize="34sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/emercontactbutton"
-        android:layout_width="71dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="16dp"
-
-        android:layout_marginTop="28dp"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/ellipse_1"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/policebutton">
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/call_icon"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/refreshlocation"
-        android:layout_width="53dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="385dp"
-        android:background="@drawable/ellipse_1"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="@+id/map"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.962"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/map"
-        app:layout_constraintVertical_bias="0.0">
-
-
-
-
-
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="54dp"
-            android:layout_height="46dp"
-            android:src="@drawable/refresh_icon"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/SOSbut"
-        android:layout_width="71dp"
-        android:layout_height="115dp"
-        android:layout_marginBottom="30dp"
-        android:clickable="true"
-        android:src="@drawable/flashbon_foreground"
-        app:backgroundTint="@color/main"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toEndOf="@+id/emercontactbutton"
-        app:layout_constraintTop_toBottomOf="@+id/refreshlocation"
-        app:layout_constraintVertical_bias="1.0"
-        app:maxImageSize="100dp"
-        app:rippleColor="#FFFFFF" />
+            app:layout_constraintHorizontal_bias="0.892"
+            app:layout_constraintStart_toEndOf="@+id/emercontactbutton"
+            app:layout_constraintTop_toBottomOf="@+id/firebutton"
+            app:maxImageSize="100dp"
+            app:rippleColor="@color/teal_200" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
