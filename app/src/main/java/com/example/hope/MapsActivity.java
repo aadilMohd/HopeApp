@@ -91,6 +91,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         toolbar= findViewById(R.id.ActionBar);
 
         navigationView=findViewById(R.id.Main_NavView);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
         setSupportActionBar(toolbar);
 
         navigationView.bringToFront();
@@ -115,6 +116,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         medicalbutton = findViewById(R.id.medicalbuton);
 
+        if (ActivityCompat.checkSelfPermission(MapsActivity.this,
+                Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CODE);
+            return;
+        }
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         fetchLocation(new LatLng(0, 0));
 
@@ -189,7 +195,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         TextView t2 = popupWindow1.getContentView().findViewById(R.id.phonea);
                         t.setTextSize(18);
                         String id = "1";
-                        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
 
                         DocumentReference result = db.collection("fire_stations").document(id);
                         result.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -471,7 +477,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 Log.d("tagisthis", "message");
                                 if (task.isSuccessful()) {
                                     DocumentSnapshot document = task.getResult();
-                                    reference = task.getResult();
+
                                     if (document.exists()) {
 
                                         driver = Objects.requireNonNull(document.get("driver_name")).toString();
@@ -521,9 +527,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         findViewById(R.id.emercontactbutton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Intent.ACTION_CALL);
-                i.setData(Uri.parse("tel:"+"7708107382"));
-
 
 
                 if (ActivityCompat.checkSelfPermission(MapsActivity.this,
@@ -531,7 +534,31 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CODE);
                     return;
                 }
-                startActivity(i);
+
+               String number="";
+                db.collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid().toString()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if(task.isSuccessful()){
+                            String number;
+
+                            DocumentSnapshot doc = task.getResult();
+                            number = doc.get("emergency_contact").toString();
+                            Intent i = new Intent(Intent.ACTION_CALL);
+                            i.setData(Uri.parse("tel:"+number));
+                            startActivity(i);
+
+                        }
+                        else{
+                            Toast.makeText(MapsActivity.this, "No emergency contact", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+
+
+
+
 
             }
         });
