@@ -22,8 +22,7 @@ services are clustered at one place, this app could be revolutionary.
 ![image](https://user-images.githubusercontent.com/75194957/147369654-c94a6944-95b9-4a81-9f71-064d2e8db8d2.png)
 ![image](https://user-images.githubusercontent.com/75194957/147369914-69e67c5d-15d9-4260-925c-c88155d47ea1.png)
 
-<p align="center">
+
   <img src="https://user-images.githubusercontent.com/75194957/147369918-d28cedae-2759-45ed-b5da-dd09a7a7f8be.png"/>
 
-</p>
                 
